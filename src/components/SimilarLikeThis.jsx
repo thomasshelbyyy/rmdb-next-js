@@ -6,9 +6,13 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import Movie from "./Movie";
 
-const MovieList = ({ movies, theme }) => {
+const SimilarLikeThis = ({ movies }) => {
 	return (
-		<div className="w-full">
+		<div className="py-4">
+			<h2 className="text-2xl font-semibold pl-2  text-my-accent py-1 mt-4 mb-2 border-l-4 border-black">
+				More like this
+			</h2>
+
 			<Swiper
 				modules={[FreeMode]}
 				slidesPerView="auto"
@@ -24,15 +28,15 @@ const MovieList = ({ movies, theme }) => {
 						spaceBetween: 10, // Jarak antar slide
 					},
 					768: {
-						slidesPerView: 4, // 3 slide untuk layar >= 768px
+						slidesPerView: 3, // 3 slide untuk layar >= 768px
 						spaceBetween: 15,
 					},
 					850: {
-						slidesPerView: 5, // 3 slide untuk layar >= 768px
+						slidesPerView: 4, // 3 slide untuk layar >= 768px
 						spaceBetween: 15,
 					},
 					1024: {
-						slidesPerView: 6, // 4 slide untuk layar >= 1024px
+						slidesPerView: 4, // 4 slide untuk layar >= 1024px
 						spaceBetween: 20,
 					},
 				}}
@@ -46,7 +50,7 @@ const MovieList = ({ movies, theme }) => {
 								title={movie.media_type === "movie" ? movie.title : movie.name}
 								id={movie.id}
 								media_type={movie.media_type}
-								theme={theme}
+								theme={"white"}
 							/>
 						</SwiperSlide>
 					))}
@@ -55,4 +59,4 @@ const MovieList = ({ movies, theme }) => {
 	);
 };
 
-export default MovieList;
+export default SimilarLikeThis;
