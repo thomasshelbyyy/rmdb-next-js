@@ -57,7 +57,7 @@ const Movie = ({ title, rating, poster_path, id, media_type, theme }) => {
 				</div>
 
 				<Link
-					href={`/detail/${media_type === "tv" ? "tv" : "movie"}/${id}`}
+					href={`/detail/${media_type === "movie" ? "movie" : "tv"}/${id}`}
 					className="text-lg font-medium hover:underline mt-3 truncate max-w-[176px] block"
 				>
 					{title}

@@ -93,7 +93,7 @@ const DetailPage = async ({ params }) => {
 	);
 
 	return (
-		<div>
+		<div className="bg-white">
 			<DetailWithBackdrop
 				backdrop_path={detail.backdrop_path}
 				media_type={mediaType}

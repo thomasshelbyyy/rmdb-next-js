@@ -18,7 +18,6 @@ export default async function Home() {
 	const popularAnime =
 		await fetchData(`${baseUrl}/discover/tv?api_key=${apiKey}&with_genres=16
 `);
-	// console.log({ popularMovies });
 	return (
 		<main className="w-full min-h-screen bg-black pt-4 text-white">
 			<Banner result={result} />
