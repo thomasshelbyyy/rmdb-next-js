@@ -8,25 +8,10 @@ import Photos from "@/components/Photos";
 import SimilarLikeThis from "@/components/SimilarLikeThis";
 import Videos from "@/components/Videos";
 
-const baseUrl = process.env.TMDB_BASE_URL;
-const apiKey = process.env.TMDB_API_KEY;
+export default async function DetailPage({ params }) {
+	const baseUrl = process.env.TMDB_BASE_URL;
+	const apiKey = process.env.TMDB_API_KEY;
 
-export async function generateMetadata({ params }) {
-	const id = (await params).id;
-	const mediaType = (await params).media_type;
-
-	const detail = await fetchData(
-		`${baseUrl}/${mediaType}/${id}?api_key=${apiKey}`
-	);
-
-	return {
-		title: `${
-			mediaType === "movie" ? detail.title : detail.name
-		} Detail | RMDB`,
-	};
-}
-
-const DetailPage = async ({ params }) => {
 	const id = (await params).id;
 	const mediaType = (await params).media_type;
 	const detail = await fetchData(
@@ -93,7 +78,7 @@ const DetailPage = async ({ params }) => {
 	);
 
 	return (
-		<div className="bg-white">
+		<main className="">
 			<DetailWithBackdrop
 				backdrop_path={detail.backdrop_path}
 				media_type={mediaType}
@@ -126,7 +111,7 @@ const DetailPage = async ({ params }) => {
 				tagline={detail.tagline}
 				totalEpisodes={mediaType === "tv" && detail.number_of_episodes}
 			/>
-			<div className="w-full lg:w-[900px] h-[1000px] mx-auto py-6 px-4 lg:px-0">
+			<div className="w-full lg:w-[900px] mx-auto py-6 px-4 lg:px-0">
 				<Videos
 					videos={videos.results.filter((vid) => vid.site === "YouTube")}
 				/>
@@ -160,11 +145,26 @@ const DetailPage = async ({ params }) => {
 					}
 				/>
 			</div>
-		</div>
+		</main>
 	);
-};
+}
 
-export default DetailPage;
+export async function generateMetadata({ params }) {
+	const baseUrl = process.env.TMDB_BASE_URL;
+	const apiKey = process.env.TMDB_API_KEY;
+	const id = (await params).id;
+	const mediaType = (await params).media_type;
+
+	const detail = await fetchData(
+		`${baseUrl}/${mediaType}/${id}?api_key=${apiKey}`
+	);
+
+	return {
+		title: `${
+			mediaType === "movie" ? detail.title : detail.name
+		} Detail | RMDB`,
+	};
+}
 
 const fetchData = async (url) => {
 	const res = await fetch(url);

@@ -7,7 +7,8 @@ const Videos = ({ videos }) => {
 	// console.log({ filteredVideos: videos });
 	return (
 		<div>
-			<h2 className="text-2xl font-semibold pl-2  text-my-accent py-1 mt-4 mb-2 border-l-4 border-black">
+			<h2 className="text-2xl font-semibold text-my-accent py-1 mt-4 mb-2 relative pl-3">
+				<div className="absolute top-0 left-0 h-full w-1 bg-black rounded-lg"></div>
 				Videos
 			</h2>
 
@@ -23,7 +24,7 @@ const Videos = ({ videos }) => {
 								url={`https://youtube.com/watch?v=${vid.key}`}
 								width="100%"
 								height="auto"
-								className="absolute top-0 left-0 w-full h-full object-contain"
+								className="absolute top-0 left-0 w-full object-contain"
 							/>
 						</div>
 					))}
