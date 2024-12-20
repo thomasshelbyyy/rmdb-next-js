@@ -40,7 +40,7 @@ const Crews = ({ directors, writers, media_type, creators }) => {
 				</button>
 			)}
 
-			<button className="flex justify-between py-3 border-b border-gray-300 w-full">
+			<button className="flex justify-between py-3 border-b border-gray-300 w-full text-black">
 				<span className="font-semibold">All cast & crew</span>
 
 				<ChevronRightIcon className="w-5 h-5 text-black" />

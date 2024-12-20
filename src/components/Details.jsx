@@ -16,9 +16,9 @@ const Details = ({
 	countries.registerLocale(enLocale);
 
 	return (
-		<div className="py-4">
+		<div className="py-4 bg-white">
 			<h2 className="text-2xl font-semibold pl-2  text-my-accent py-1 mt-4 mb-2 border-l-4 border-black">
-				Photos
+				Detail
 			</h2>
 
 			<div className="py-2 border-t border-gray-300 flex justify-between px-2  items-center">

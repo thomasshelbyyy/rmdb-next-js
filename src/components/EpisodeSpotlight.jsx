@@ -48,7 +48,7 @@ const EpisodeSpotlight = ({
 	};
 
 	return (
-		<div className="py-6">
+		<div className="py-6 bg-white">
 			<h2 className="text-2xl font-semibold pl-2  text-my-accent py-1 mt-4 mb-2 border-l-4 border-black">
 				Episode Spotlight
 			</h2>
@@ -90,7 +90,7 @@ const EpisodeSpotlight = ({
 					</span>
 				</div>
 
-				<div className="flex max-w-full overflow-x-auto pb-1">
+				<div className="flex max-w-full overflow-x-auto pb-1 text-black">
 					{currentSeasonDetail.episodes.map((eps) => (
 						<button
 							className="relative px-3 py-1"

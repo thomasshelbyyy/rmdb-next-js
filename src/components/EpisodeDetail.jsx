@@ -18,7 +18,7 @@ const EpisodeDetail = ({
 }) => {
 	const baseImageUrl = process.env.NEXT_PUBLIC_TMDB_BASE_IMAGE_URL;
 	return (
-		<div className="w-full rounded-lg border border-gray-300 bg-gray-100 shadow-md">
+		<div className="w-full rounded-lg border border-gray-300 bg-gray-100 shadow-md text-black">
 			<Image
 				src={`${baseImageUrl}/original/${image_path}`}
 				width={100}
