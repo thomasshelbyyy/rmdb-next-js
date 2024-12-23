@@ -78,7 +78,7 @@ export default async function DetailPage({ params }) {
 	);
 
 	return (
-		<main className="bg-white">
+		<main className="bg-white text-black">
 			<DetailWithBackdrop
 				backdrop_path={detail.backdrop_path}
 				media_type={mediaType}
