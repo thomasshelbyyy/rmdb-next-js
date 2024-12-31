@@ -17,8 +17,6 @@ const Banner = ({ result }) => {
 				slidesPerView={1}
 				autoplay={{ delay: 3000, pauseOnMouseEnter: true }}
 				pagination={{ clickable: true }}
-				onSlideChange={() => console.log("slide change")}
-				onSwiper={(swiper) => console.log(swiper)}
 				className="w-full h-full"
 			>
 				{result &&
