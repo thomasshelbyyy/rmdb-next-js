@@ -7,10 +7,13 @@ import { FadeLoader } from "react-spinners";
 import useDebounce from "@/lib/hooks/useDebounce";
 import { fetchData } from "@/lib/function";
 import SearchResultCard from "./SearchResultCard";
+import Form from "next/form";
+import { useRouter } from "next/navigation";
 
 export default function SearchComponent() {
   const apiKey = process.env.NEXT_PUBLIC_TMDB_API_KEY;
   const baseUrl = process.env.NEXT_PUBLIC_TMDB_BASE_URL;
+  const router = useRouter();
 
   const [activeFilter, setActiveFilter] = useState("All");
   const [filterOptionsActive, setFilterOptionsActive] = useState(false);
@@ -64,6 +67,14 @@ export default function SearchComponent() {
     };
   }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (searchTerms.trim()) {
+      router.push(`/search?q=${encodeURIComponent(searchTerms.trim())}`);
+    }
+    setResultActive(false);
+  };
+
   const handleClick = (filter) => {
     setActiveFilter(filter);
     setFilterOptionsActive(false);
@@ -83,7 +94,7 @@ export default function SearchComponent() {
       </button>
 
       {/* Search Input */}
-      <div className="flex items-center pr-3">
+      <Form className="flex items-center pr-3" onSubmit={handleSubmit}>
         <input
           type="text"
           className="focus:outline-none text-sm w-96 px-3 py-1"
@@ -94,8 +105,10 @@ export default function SearchComponent() {
           onBlur={() => setTimeout(() => setResultActive(false), 200)} // Hilangkan hasil setelah kehilangan fokus
         />
 
-        <MagnifyingGlassIcon className="w-6 h-6" />
-      </div>
+        <button type="submit">
+          <MagnifyingGlassIcon className="w-6 h-6" />
+        </button>
+      </Form>
 
       {/* Filter Options */}
       {filterOptionsActive && (
