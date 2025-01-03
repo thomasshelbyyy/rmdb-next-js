@@ -27,12 +27,10 @@ export default async function SearchPage({ searchParams }) {
 
   const filterForPeople = data.results.filter((d) => d.media_type === "person");
 
-  console.log({ filteredData, filterForPeople });
-
   return (
     <main className="flex px-10 py-8 bg-black text-white">
       <section className="lg:w-8/12">
-        <h1 className="text-4xl">Search "{q}"</h1>
+        <h1 className="text-4xl">Search &quot;{q}&quot;</h1>
 
         <div className="w-full pt-4">
           {/* title result */}
